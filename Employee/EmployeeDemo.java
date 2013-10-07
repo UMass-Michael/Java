@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class EmployeeDemo
+{
+  public static void main( String args[])
+  {
+    Scanner keyboard = new Scanner(System.in);
+    
+    Employee Employee1 = new Employee("Susan Meyers", 47899, "Accounting", "Vice President");
+    Employee Employee2 = new Employee("Mark Jones", 39119, "IT", "Programmer");
+    Employee Employee3 = new Employee("Joy Rogers", 81774, "Manufacturing", "Engineer");
+    Employee Employee4 = new Employee("",0,"","");
+    String fake = new String();
+    
+    System.out.print("What is your name?");
+    Employee4.setName(keyboard.nextLine());
+    System.out.print("What is your ID?");
+    Employee4.setId(keyboard.nextInt());
+    fake = keyboard.nextLine();
+    System.out.print("What is your major?");
+    Employee4.setDept(keyboard.nextLine());
+    System.out.print("What is your dorm?");
+    Employee4.setPos(keyboard.nextLine());
+    
+    
+    System.out.println("The first employee is "  + Employee1.getName() + " who's ID is " + Employee1.getId() + ", works in " +  Employee1.getDept() + ", and is the " + Employee1.getPos() + " of the company.");
+    System.out.println("The second employee is " + Employee2.getName() + " who's ID is " + Employee2.getId() + ", works in " +  Employee2.getDept() + ", and is the " + Employee2.getPos() + " of the company.");
+    System.out.println("The third employee is "  + Employee3.getName() + " who's ID is " + Employee3.getId() + ", works in " +  Employee3.getDept() + ", and is the " + Employee3.getPos() + " of the company.");
+    System.out.println("The fourth employee is " + Employee4.getName() + " who's ID is " + Employee4.getId() + ", works in " +  Employee4.getDept() + ", and is the " + Employee4.getPos() + " of the company.");
+  }
+}
