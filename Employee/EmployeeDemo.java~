@@ -2,14 +2,14 @@ import java.util.Scanner;
 
 public class EmployeeDemo
 {
-  public static void main( String args[] )
+  public static void main( String args[])
   {
     Scanner keyboard = new Scanner(System.in);
     
     Employee Employee1 = new Employee("Susan Meyers", 47899, "Accounting", "Vice President");
     Employee Employee2 = new Employee("Mark Jones", 39119, "IT", "Programmer");
     Employee Employee3 = new Employee("Joy Rogers", 81774, "Manufacturing", "Engineer");
-    Employee Employee4;
+    Employee Employee4 = new Employee("",0,"","");
     String fake = new String();
     
     System.out.print("What is your name?");

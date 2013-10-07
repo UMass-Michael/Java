@@ -6,7 +6,7 @@ public class Employee
     private String department;
     private String position;
     
-    // Creates the object Employee
+    // Gets the values to store in memory
     public Employee(String names, int num, String dept, String pos)
     {
       name = names;
