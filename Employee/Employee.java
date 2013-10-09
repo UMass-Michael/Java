@@ -18,9 +18,9 @@ public class Employee
       {
         name = names;
       }
-      public void setId(int num)
+      public void setId(int idNumber)
       {
-        id = num;
+        id = idNumber;
       }
       public void setDept(String dept)
       {

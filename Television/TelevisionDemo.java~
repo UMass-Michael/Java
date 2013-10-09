@@ -10,7 +10,6 @@ public class TelevisionDemo
     int station; //the user?s channel choice 
     //declare and instantiate a television object
     Television bigScreen = new Television("Toshiba", 55);
-    Television portable = new Television("Sharp", 19);
     //turn the power on
     bigScreen.power();
     //display the state of the television
@@ -38,15 +37,5 @@ public class TelevisionDemo
     System.out.println("Channel: " + bigScreen.getChannel() +
        " Volume: " + bigScreen.getVolume());
     System.out.println(); //for a blank line
-    
-    
-   portable.power();
-   System.out.println("A " + portable.getScreenSize() + "inch " + portable.getManufacturer() + " TV has been turned on.");
-   System.out.println("What channel do you want?");
-   portable.setChannel(keyboard.nextInt() );
-   portable.decreaseVolume();
-   portable.decreaseVolume();
-   System.out.println("Channel: " + portable.getChannel() + ", Volume: " + portable.getVolume() );
-   
   }
 }
