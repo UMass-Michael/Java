@@ -1,0 +1,56 @@
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+public class TestscoresDemo
+{
+  public static void main(String args[])
+  {
+    Scanner keyboard = new Scanner(System.in);
+    Testscore score1 = new Testscore(1);
+    Testscore score2 = new Testscore(1);
+    Testscore score3 = new Testscore(1);
+    double avg;
+    String grade;
+    
+    System.out.println("What is the first test score?");
+    score1.setScore(keyboard.nextDouble());
+    System.out.println("What is the second test score?");
+    score2.setScore(keyboard.nextDouble());
+    System.out.println("What is the third test score?");
+    score3.setScore(keyboard.nextDouble());
+    
+    avg = (score1.getScore() + score2.getScore() + score3.getScore()) / 3;
+    
+    if (avg < 60)
+    {
+      grade = "F";
+    }
+    else
+    {
+      if (avg < 70)
+      {
+        grade = "D";
+      }
+      else
+      {
+        if (avg < 80)
+        {
+          grade = "C";
+        }
+        else
+        {
+          if (avg < 90)
+          {
+            grade = "B";
+          }
+          else
+          {
+            grade = "A";
+          }
+        }
+      }
+    }
+    
+    System.out.println("Your average score is " + avg + ", which is the letter grade " + grade + ".");
+  }
+}

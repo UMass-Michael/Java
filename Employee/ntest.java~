@@ -1,0 +1,9 @@
+import java.util.Scanner;
+
+public class ntest
+{
+  public static void main( String args[] )
+  {
+    println("This is" + \n + "A test of \n" + "and if it will go to a new line");
+  }
+}

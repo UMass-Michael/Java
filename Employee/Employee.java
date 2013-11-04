@@ -7,28 +7,28 @@ public class Employee
     private String position;
     
     // Creates the object Employee
-    public Employee(String names, int num, String dept, String pos)
+    public Employee()
     {
-      name = names;
-      id = num;
-      department = dept;
-      position = pos;
+      this.name = name;
+      this.id = id;
+      this.department = department;
+      this.position = position;
     }
-      public void setName(String names)
+      public void setName(String name)
       {
-        name = names;
+        this.name = name;
       }
-      public void setId(int idNumber)
+      public void setId(int id)
       {
-        id = idNumber;
+        this.id = id;
       }
-      public void setDept(String dept)
+      public void setDept(String department)
       {
-        department = dept;
+        this.department = department;
       }
-      public void setPos(String pos)
+      public void setPos(String position)
       {
-        position = pos;
+        this.position = position;
       }
       
       // Calls the values stored for displaying

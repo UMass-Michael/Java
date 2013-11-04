@@ -1,0 +1,15 @@
+import.java.io.*
+public class WriteFile
+{
+  public static void main String( args[])
+  {
+    //Opens numberList.txt created by code, uses a loop to write 1-100 to file and then closes file
+    PrintWriter numberList = new PrintWriter("numberList.txt");
+    int number = 1;
+    while (number < 100)
+    {
+      outputFile.println(number);
+      number = number - 1;
+    }
+  }
+}

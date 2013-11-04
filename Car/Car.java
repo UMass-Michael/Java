@@ -4,23 +4,23 @@ public class Car
   private String make = new String();
   private int speed;
   
-  public Car(int year, String brand, int velocity)
+  public Car(int yearModel, String make, int speed)
   {
-    yearModel = year;
-    make = brand;
-    speed = velocity;
+    this.yearModel = yearModel;
+    this.make = make;
+    this.speed = speed;
   }
-    public void setYear(int year)
+    public void setYear(int yearModel)
     {
-      yearModel = year;
+      this.yearModel = yearModel;
     }
-    public void setMake(String brand)
+    public void setMake(String make)
     {
-      make = brand;
+      this.make = make;
     }
-    public void setSpeed(int velocity)
+    public void setSpeed(int speed)
     {
-      speed = velocity;
+      this.speed = speed;
     }
     
     

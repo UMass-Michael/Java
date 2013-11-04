@@ -1,0 +1,146 @@
+//This program uses the pizza class to allow the user to order a pizza
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class PizzaOrder
+{
+  public static void main (String [] args)
+  { 
+    //Create a Scanner object to read input
+    Scanner keyboard = new Scanner (System.in);
+
+    //Create an instance of a Pizza
+    Pizza order = new Pizza ();
+    
+    //declare and initalize some local variables
+    String firstName; //user?s first name
+    boolean discount = false; //flag, true if user is eligible for discount
+    int inches; //size of the pizza
+    char crustType; //type of crust
+    double cost; //cost of the pizza
+    final double TAX_RATE = .08;//sales tax rate
+    double tax; //amount of tax
+    char choice; //users choice
+    String input; //user input
+    String toppings = "Cheese ";//list of toppings
+    int numberOfToppings = 0; //number of toppings
+    
+    //prompt user and get first name
+    System.out.println("Welcome to Mike and " + "Diane?s Pizza");
+    System.out.print("Enter your first name: ");
+    firstName = keyboard.nextLine();
+    
+    //TASK #1
+    if (  (firstName.equalsIgnoreCase("Mike")) || (firstName.equalsIgnoreCase("Michael")) || (firstName.equalsIgnoreCase("Diana"))  )
+    {
+      discount = true;  
+    }
+    
+    //prompt user and get pizza size choice
+    System.out.println("Pizza Size (inches) Cost");
+    System.out.println(" 10 $10.99");
+    System.out.println(" 12 $12.99");
+    System.out.println(" 14 $14.99");
+    System.out.println(" 16 $16.99");
+    System.out.println("What size pizza would you like?");
+    System.out.print("10, 12, 14, or 16 " + "(enter the number only): ");
+    inches = keyboard.nextInt();
+        
+    //TASK #2 set price and size of pizza ordered
+    //write an "if statement" to test the value of the variable inches
+    //  make a call to the setSize method passing the appropriate pizza size
+    //  also make a call to the setCost method and pass it the appropriate cost adjustment (cost is preset to 12.99)
+    //  be sure to include a default else case that gives an error message and sets the size to 12 and cost to 12.99
+    //see pages 205-209 of our text, add the code for TASK #2 here:
+    if (inches == 10)
+    { order.setCost(-2); }
+    else if (inches == 14)
+    { order.setCost(+2); }
+    else if (inches == 16)
+    { order.setCost(+4); }
+    
+    //consume the remaining newline character
+    keyboard.nextLine();
+    //prompt user and get crust choice
+    System.out.println("What type of crust do you want? ");
+    System.out.print("(H)Hand-tossed, (T) Thin-crust, or (D) Deep-dish (enter H, T, or D): ");
+    input = keyboard.nextLine();
+    crustType = Character.toUpperCase(input.charAt(0));
+
+    switch (crustType)
+    {
+      case 'H': order.setCrust("Hand-tossed"); break;
+      case 'D': order.setCrust("Deep-dish");   break;
+      case 'T': order.setCrust("Thin-crust");  break;
+      default:  order.setCrust("Invalid selection: Using Hand-tossed"); break;
+    }
+  
+    //prompt user and get topping choices one at a time
+    System.out.println("All pizzas come with cheese.");
+    System.out.println("Additional toppings are $1.25 each, choose from: ");
+    System.out.println("Pepperoni, Sausage, Onion, Mushroom");
+    
+    //if a topping is desired, add it to topping list and number of toppings
+    System.out.print("Do you want Pepperoni? (Y/N): ");
+    input = keyboard.nextLine();
+    choice = Character.toUpperCase(input.charAt(0));
+    if (choice == 'Y')
+    {
+      numberOfToppings += 1;
+      toppings = toppings + "Pepperoni ";
+    }
+    System.out.print("Do you want Sausage? (Y/N): ");
+    input = keyboard.nextLine();
+    choice = Character.toUpperCase(input.charAt(0));
+    if (choice == 'Y')
+    {
+      numberOfToppings += 1;
+      toppings = toppings + "Sausage ";
+    }
+    System.out.print("Do you want Onion? (Y/N): ");
+    input = keyboard.nextLine();
+    choice = Character.toUpperCase(input.charAt(0));
+    if (choice == 'Y')
+    {
+      numberOfToppings += 1;
+      toppings = toppings + "Onion ";
+    }
+    System.out.print("Do you want Mushroom? (Y/N): ");
+    input = keyboard.nextLine();
+    choice = Character.toUpperCase(input.charAt(0));
+    if (choice == 'Y')
+    {
+      numberOfToppings += 1;
+      toppings = toppings + "Mushroom ";
+    }
+    //set number of toppings and topping list on pizza ordered
+    order.setNumToppings(numberOfToppings);
+    order.setToppingList(toppings);
+    //add additional toppings cost to cost of pizza
+    order.setCost(1.25*numberOfToppings);
+    //display order confirmation
+    System.out.println();
+    System.out.println("Your order is as follows: ");
+    System.out.println(order.getSize() + " inch pizza");
+    System.out.println(order.getCrust() + " crust");
+    System.out.println(order.getToppingList());
+    //display cost of pizza
+    cost = order.getCost();
+   
+    if (discount == true)
+    {
+      System.out.println("You get a discount!");
+      order.setCost(-2);
+      cost = order.getCost();
+    }
+    DecimalFormat df = new DecimalFormat("##.00");
+        
+    
+    System.out.println("The cost of your order is: $" + df.format(cost));
+    tax = (cost * TAX_RATE);
+    System.out.println("The tax is: $" + df.format(tax));
+    System.out.println("The total due is: $" + df.format((tax+cost)));
+    System.out.println("Your order will be ready for pickup in 30 minutes.");
+  }
+}
